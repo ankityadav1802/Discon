@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/discon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="navbar">
+
+        <div class="logo">
+            <a href="/discon">DisCon</a>
+        </div>
+
+        <form class="search-bar" action="/discon/search" method="GET">
+            <input type="text" name="q" placeholder="Search...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        
+        <div class="btns">
+            <!-- <button class="read-btn">Read</button> -->
+              <div class="user">
+                     <i class="fa-solid fa-circle-user"></i>
+                      <div class="dropdown">
+                            <a href="#"><i class="fa-regular fa-address-card"></i>Profile</a>
+                            <a href="#"><i class="fa-solid fa-gear"></i>Settings</a>
+                            <a href="#"><i class="fa-solid fa-hand-holding"></i>Guider</a>
+                       </div>
+             </div>
+            <a href="http://localhost:3000/discon/new" class="add-question-btn">Add question</a>
+            <!-- <a href="#trending" class="add-question-btn">Questions</a> -->
+        </div>
+       
+       
+    </div>
+</body>
+</html>

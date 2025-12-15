@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read</title>
+    <link rel="stylesheet" href="/pages.css">
+    <link rel="icon" href="/discon.png" type="image/png">
+
+    
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    <div class="read">
+
+        <div class="profile">
+            <div class="icon">
+                <a href="/discon">⬅ Back</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <a href="/discon/<%= info.id %>/edit"> -->
+                 <!-- <i class="fa-solid fa-file-pen"></i> -->
+                <!-- </a> -->
+            </div><br>
+            <div class="user-details">
+                <i class="fa-solid fa-circle-user"></i>
+                <p><%=info.publisher%>
+                    <br>
+                    <%= new Date().toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: '2-digit'
+                    })%></p>
+            </div> 
+
+        </div>
+        <div class="info">
+            <p class="question"><%= info.question %></p><br>
+            <p class="description"><%= info.description %></p> <br>
+
+        </div>
+    </div>
+
+    <div class="favor-resist">
+
+        <div class="favor-resist-form">
+            <form action="/discon/<%= info.id %>/opinion" method="POST">
+                      <input type="text" name="name" placeholder="Your Name" required>
+                      <textarea name="view" placeholder="Write your opinion..." required></textarea>
+                      <input type="hidden" name="type" id="opinionType">
+                      <button type="submit" onclick="setType('favor')">Favor</button>
+                      <!-- <p>Favor: <%= info.favorResist.favor.length %><p><br> -->
+                      <button type="submit" onclick="setType('resist')">Resist</button>
+            </form>
+                        <script>
+                              function setType(value) {
+                                 document.getElementById("opinionType").value = value;
+                                 }              
+                        </script>
+        </div>
+        
+
+        <div class="user-favor">
+                      <% info.favorResist.favor.forEach(p => { %>
+
+                      <p><b><%= p.name %>:</b> </p>
+                      <p><%= p.view %></p>
+                      <br>
+                      <hr>
+                      <br>
+                      <% }) %>
+            </div>
+
+            <!-- <p>Oppose: <%= info.favorResist.resist.length %></p> -->
+
+
+        <div class="user-resist">
+                  <% info.favorResist.resist.forEach(p => { %>
+                 <p><b><%= p.name %>:</b></p>
+                 <p><%= p.view %></p>
+                 <br>
+                <hr>
+                <br>
+                <% }) %>
+        </div>
+        
+    </div>
+
+
+
+<%- include("../includes/footer.ejs") %>
+
+</body>
+</html>

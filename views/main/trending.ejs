@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/style.css">
+     <link rel="icon" href="/discon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="background-color: #aaaaaa;">
+
+     <div class="title" id="trending">
+            <p> <i class="fa-solid fa-arrow-trend-up"></i>&nbsp;Trending Topics</p>
+
+        </div>
+
+     <% infos.forEach(info => { %>
+    <div  class="trending">
+           <div class="cards">
+                        <div class="question">
+                            <div class="icons">
+                                <h1><%= info.question %></h1>
+
+                                <div class="icon">
+                                    <!-- Edit icon as link -->
+                                 <a href="/discon/<%= info.id %>/edit">
+                                     <i class="fa-solid fa-file-pen"></i>
+                                 </a>
+
+                                 &nbsp;
+
+                                <!-- Delete icon as form -->
+                                 <form method="POST" action="/discon/<%= info.id %>?_method=DELETE" class="icon-form">
+                                       <button type="submit" onclick="return confirm('Delete this?')">
+                                                 <i class="fa-solid fa-trash"></i>
+                                                 </button>
+                                </form>
+                                </div>
+
+                                  
+                            </div>
+
+                        
+                             <p id="description"><%=info.description%></p>
+                        </div>
+
+                         <div class="butns">
+                            <div class="user-details">
+                                 <i class="fa-solid fa-circle-user"></i>
+                                 <p><%=info.publisher%>
+                                 <br>
+                                 <%= new Date().toLocaleDateString('en-GB', {
+                                     day: '2-digit',
+                                     month: '2-digit',
+                                     year: '2-digit'
+                                 })%> :
+                                 <%= info.createdAt ? moment.utc(info.createdAt).local().fromNow() : "just now" %>
+                                </p>
+                            </div>                           
+                            <a href="/discon/<%= info.id %>" class="read">Read</a>
+                             
+                       </div>  
+            </div>     
+    </div>
+<% }) %>
+</body>
+</html>

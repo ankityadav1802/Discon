@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" href="/discon.png" type="image/png">
+
+</head>
+<body>
+
+    <h2>Search results for "<%= query %>":</h2>
+
+                     <% if (results.length === 0) { %>
+                       <p>No questions found.</p>
+                     <% } else { %>
+                        <ul>
+                       <% results.forEach(info => { %>
+                        <li><a href="/discon/<%= info.id %>"><%= info.question %></a></li>
+                        <% }) %>
+                           </ul>
+                   <% } %>
+
+                     <a href="/discon">Back to all discussions</a>
+
+    
+</body>
+</html>

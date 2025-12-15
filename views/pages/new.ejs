@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+    <link rel="stylesheet" href="/pages.css">
+    <link rel="icon" href="/discon.png" type="image/png">
+
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    <h1>New Question</h1>
+
+    <div class="new">
+
+    <form action="/discon" method="POST">
+        <div class="form-group">
+            <a href="/discon">⬅ Back</a>
+            <input type="submit" value="Post">
+        </div><br><br>
+
+        <input type="text" id="publisher" name="publisher" placeholder="Publisher" required><br><br>
+
+        <input type="text" id="question" name="question" placeholder="Question" required><br><br>
+
+        <textarea id="description" name="description" rows="20" cols="50" placeholder="Describe about questions....." required></textarea><br><br>
+
+
+     </form>
+
+     </div>
+
+     <%- include("../includes/footer.ejs") %>
+</body>
+</html>
